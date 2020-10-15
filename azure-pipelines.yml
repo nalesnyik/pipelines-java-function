@@ -40,6 +40,6 @@ steps:
     replaceExistingArchive: true
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/functions$(Build.BuildId).zip'
+    ArtifactName: 'drop'
