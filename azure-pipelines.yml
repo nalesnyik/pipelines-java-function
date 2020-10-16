@@ -26,14 +26,14 @@ steps:
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
-    Contents: '**/azure-functions/**'
+    Contents: 'target/azure-functions/**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 # Create Archive : zip file
 - task: ArchiveFiles@2
-  displayName: 'Archive $(Build.ArtifactStagingDirectory)/target/azure-functions/$(functionAppMvnTargetFolder)'
+  displayName: 'Archive $(Build.ArtifactStagingDirectory)/target/azure-functions/javafunctions'
   inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/target/azure-functions/$(functionAppMvnTargetFolder)'
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/target/azure-functions/javafunctions'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/functions$(Build.BuildId).zip'
